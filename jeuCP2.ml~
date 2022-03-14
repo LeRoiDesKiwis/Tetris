@@ -1,7 +1,5 @@
 open CPutil;;
-
 #use "CPinter.ml";;
-
 (* -------------------------- *)
 (* -------------------------- *)
 (*    fonctions utilitaires   *)
@@ -60,9 +58,7 @@ type t_play = {par : t_param ; cur_shape : t_cur_shape ; mat : t_color matrix} ;
 
 
 (* Initialisation de quelques formes et des parametres *)
-(*
-=======
->>>>>>> commit
+
 let init_sh011() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 3 ; y = 0}] ; 
   x_len = 4 ; y_len = 1 ; 
@@ -96,7 +92,7 @@ let init_param() : t_param =
     shapes = init_shapes()
     }
 ;;
-*)
+
 
 (* ----------------------------------------------- *)
 (* ----------------------------------------------- *)
@@ -105,7 +101,6 @@ let init_param() : t_param =
 (* ----------------------------------------------- *)
 
 (* choix des deplacements suivant le caractere saisi *)
-(*
 let move(pl, dir : t_play * char) : bool = 
   (
   if dir = 't'
@@ -123,7 +118,6 @@ let move(pl, dir : t_play * char) : bool =
   (dir = 'v')
   )
 ;;
-*)
 
 
 (* ----------------------------------- *)
@@ -139,7 +133,6 @@ let move(pl, dir : t_play * char) : bool =
 (* --------------------- *)
 (* --------------------- *)
 
-(*
 let newstep(pl, new_t, t, dt : t_play * float ref * float * float) : bool = 
   let the_end : bool ref = ref (!new_t -. t > dt) and dec : bool ref = ref false in
   let dir : char ref = ref 'x' and notmove : bool ref = ref false in
@@ -163,7 +156,6 @@ let newstep(pl, new_t, t, dt : t_play * float ref * float * float) : bool =
     !the_end ;
     )
 ;;
-*)
 
 (* ------------------------ *)
 (* ------------------------ *)
@@ -171,7 +163,6 @@ let newstep(pl, new_t, t, dt : t_play * float ref * float * float) : bool =
 (* ------------------------ *)
 (* ------------------------ *)
 
-(*
 
 let jeuCP2() : unit =
   let pl : t_play = init_play() in
@@ -191,7 +182,6 @@ let jeuCP2() : unit =
       t := !new_t
     done
 ;;
- *)
 
 (* ------------------------ *)
 (* ------------------------ *)
@@ -272,38 +262,6 @@ let drawfill_relative_pt(p, base_point, base_draw, dilat ,col : t_point * t_poin
 
 (* --------------------- *)
 (* --------------------- *)
-(*      Question 3       *)
-(* --------------------- *)
-(* --------------------- *)
-
-(*draw_pt_list
-trace les contours de plusieurs carr�s pour former les pi�ces
-      l est la liste des points d'origine de chaque carr�
-      base_point est le point d'origine local
-      base_draw est le point d'origine de l'espace d'affichage
-      dilat est la longueur d'un carr�
-      col est la couleur du contour d'un carr�*)
-
-let draw_pt_list(l, base_pt, base_draw, dilat, col : t_point list * t_point * t_point * int * t_color) : unit =
-  for i = 0 to (len(l) - 1)
-  do draw_relative_pt(p ,nth(l, i), base_draw, dilat, col)
-  done
-;;
-
-(*fill_pt_list
-trace plusieurs carr�s pleins pour former les pi�ces
-      l est la liste des points d'origine de chaque carr�
-      base_point est le point d'origine local
-      base_draw est le point d'origine de l'espace d'affichage
-      dilat est la longueur d'un carr�
-      col est la couleur du contour d'un carr�*)
-
-let fill_pt_list(l, base_pt, base_draw, dilat, col : t_point list * t_point * t_point * int * t_color) : unit =
-  for i = 0 to (len(l) - 1)
-  do draw_relative_pt(p ,nth(l, i), base_draw, dilat, col)
-  done
-
-  
 (*      Question 4       *)
 (* --------------------- *)
 (* --------------------- *)
@@ -324,7 +282,7 @@ let draw_frame(base_draw, size_x, size_y, dilat : t_point * int * int * int): un
 (* --------------------- *)                  
 
 let color_choice(t : t_color t_array): t_color =
-  t = [|blue, red, green, black|]
+  t = [|blue, rouge, vert, noir|]
 ;;
 
 
