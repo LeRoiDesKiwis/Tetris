@@ -1,7 +1,5 @@
 open CPutil;;
 
-#use "CPinter.ml";;
-
 (* -------------------------- *)
 (* -------------------------- *)
 (*    fonctions utilitaires   *)
@@ -61,8 +59,6 @@ type t_play = {par : t_param ; cur_shape : t_cur_shape ; mat : t_color matrix} ;
 
 (* Initialisation de quelques formes et des parametres *)
 (*
-=======
->>>>>>> commit
 let init_sh011() : t_shape = 
   {shape = [{x = 0 ; y = 0} ; {x = 1 ; y = 0} ; {x = 2 ; y = 0} ; {x = 3 ; y = 0}] ; 
   x_len = 4 ; y_len = 1 ; 
@@ -195,37 +191,37 @@ let jeuCP2() : unit =
 
 (* ------------------------ *)
 (* ------------------------ *)
-(*    question 1            *)
+(*        Question 1        *)
 (* ------------------------ *)
 (* ------------------------ *)
 
-(*draw_absolute_pt donne le contour d'un carré
-p donne l'origine des coordonnées d'un carré dans l'espace de travail
-base_draw c'est lorigine de l'espace d'affichage
-dilat repésente la longueur d'un coté du carré
-col pour la couleur du carré **)
+(*draw_absolute_pt donne le contour d'un carrï¿½
+p donne l'origine des coordonnï¿½es d'un carrï¿½ dans l'espace de travail
+base_draw est l'origine de l'espace d'affichage
+dilat repï¿½sente la longueur d'un cotï¿½ du carrï¿½
+col pour la couleur du carrï¿½*)
 
-        let draw_absolute_pt(p, base_draw, dilat, col : t_point * t_point * int * t_color) : unit =
+let draw_absolute_pt(p, base_draw, dilat, col : t_point * t_point * int * t_color) : unit =
   set_color(col);
   draw_rect(base_draw.x + dilat * p.x ,base_draw.x + dilat * p.y, base_draw.x + dilat * (p.x + 1) - 1, base_draw.y + dilat * (p.y + 1) - 1)
 ;;
 
-(*fill_absolute_pt trace un carré plein 
-p donne l'origine des coordonnées d'un carré dans l'espace de travail
-base_draw c'est lorigine de l'espace d'affichage
-dilat repésente la longueur d'un coté du carré
-col pour la couleur du carré**)
+(*fill_absolute_pt trace un carrï¿½ plein 
+p donne l'origine des coordonnï¿½es d'un carrï¿½ dans l'espace de travail
+base_draw est l'origine de l'espace d'affichage
+dilat repï¿½sente la longueur d'un cotï¿½ du carrï¿½
+col pour la couleur du carrï¿½*)
 
 let fill_absolute_pt(p, base_draw, dilat, col : t_point * t_point * int * t_color) : unit =
   set_color(col);
   fill_rect(base_draw.x + dilat * p.x ,base_draw.x + dilat * p.y, base_draw.x + dilat * (p.x + 1) - 1, base_draw.y + dilat * (p.y + 1) - 1)
 ;;
 
-(*drawfill_absolute_pt trace un carré de couleur avec un contour noir
-p donne l'origine des coordonnées d'un carré dans l'espace de travail
-base_draw c'est lorigine de l'espace d'affichage
-dilat repésente la longueur d'un coté du carré
-col pour la couleur du carré**)
+(*drawfill_absolute_pt trace un carrï¿½ de couleur avec un contour noir
+p donne l'origine des coordonnï¿½es d'un carrï¿½ dans l'espace de travail
+base_draw est l'origine de l'espace d'affichage
+dilat repï¿½sente la longueur d'un cotï¿½ du carrï¿½
+col pour la couleur du carrï¿½*)
 
 let drawfill_absolute_pt(p, base_draw, dilat, col : t_point * t_point * int * t_color) : unit =
   fill_absolute_pt(p, base_draw, dilat, col);
@@ -235,35 +231,35 @@ let drawfill_absolute_pt(p, base_draw, dilat, col : t_point * t_point * int * t_
                                                                                               
 (* --------------------- *)
 (* --------------------- *)
-(*      Question 2       *)
+(*       Question 2      *)
 (* --------------------- *)
 (* --------------------- *)
 
-(*draw_relative_pt donne le contour d'un carré
-p est definit relativement a base point et donne l'origine des coordonnées d'un carré dans l'espace de travail
-base_draw c'est lorigine de l'espace d'affichage
-dilat repésente la longueur d'un coté du carré
-col pour la couleur du carré **)
+(*draw_relative_pt donne le contour d'un carrï¿½
+      p est definit relativement a base point et donne l'origine des coordonnï¿½es d'un carrï¿½ dans l'espace de travail
+      base_draw c'est lorigine de l'espace d'affichage
+      dilat repï¿½sente la longueur d'un cotï¿½ du carrï¿½
+      col pour la couleur du carrï¿½*)
 
 let draw_relative_pt(p, base_point, base_draw, dilat ,col : t_point * t_point * t_point * int * t_color) : unit =
   draw_absolute_pt({x = p.x + base_point.x ; y =  p.y + base_point.y}, base_draw, dilat, col)
 ;;
 
-(*fill_relative_pt trace un carré plein 
-p est definit relativement a base point donne l'origine des coordonnées d'un carré dans l'espace de travail
-base_draw c'est lorigine de l'espace d'affichage
-dilat repésente la longueur d'un coté du carré
-col pour la couleur du carré**)
+(*fill_relative_pt trace un carrï¿½ plein 
+    p est definit relativement a base point donne l'origine des coordonnï¿½es d'un carrï¿½ dans l'espace de travail
+    base_draw c'est lorigine de l'espace d'affichage
+    dilat repï¿½sente la longueur d'un cotï¿½ du carrï¿½
+    col pour la couleur du carrï¿½*)
 
 let fill_relative_pt(p, base_point, base_draw, dilat ,col : t_point * t_point * t_point * int * t_color) : unit =
   fill_absolute_pt({x = p.x + base_point.x; y =  p.y + base_point.y}, base_draw, dilat, col)
 ;;
 
-(*drawfill_relative_pt trace un carré de couleur avec un contour noir
-p est definit relativement a base point donne l'origine des coordonnées d'un carré dans l'espace de travail
-base_draw c'est lorigine de l'espace d'affichage
-dilat repésente la longueur d'un coté du carré
-col pour la couleur du carré*)
+(*drawfill_relative_pt trace un carrï¿½ de couleur avec un contour noir
+      p est definit relativement a base point donne l'origine des coordonnï¿½es d'un carrï¿½ dans l'espace de travail
+      base_draw c'est lorigine de l'espace d'affichage
+      dilat repï¿½sente la longueur d'un cotï¿½ du carrï¿½
+      col pour la couleur du carrï¿½*)
 
 let drawfill_relative_pt(p, base_point, base_draw, dilat ,col : t_point * t_point * t_point * int * t_color) : unit =
   drawfill_absolute_pt({x = p.x + base_point.x ; y = p.y + base_point.y}, base_draw, dilat, col)
@@ -286,7 +282,7 @@ trace les contours de plusieurs carrï¿½s pour former les piï¿½ces
 
 let draw_pt_list(l, base_pt, base_draw, dilat, col : t_point list * t_point * t_point * int * t_color) : unit =
   for i = 0 to (len(l) - 1)
-  do draw_relative_pt(p ,nth(l, i), base_draw, dilat, col)
+  do draw_relative_pt(nth(l, i), base_pt, base_draw, dilat, col)
   done
 ;;
 
@@ -300,22 +296,67 @@ trace plusieurs carrï¿½s pleins pour former les piï¿½ces
 
 let fill_pt_list(l, base_pt, base_draw, dilat, col : t_point list * t_point * t_point * int * t_color) : unit =
   for i = 0 to (len(l) - 1)
-  do draw_relative_pt(p ,nth(l, i), base_draw, dilat, col)
+  do draw_relative_pt(nth(l, i), base_pt, base_draw, dilat, col)
   done
+;;
 
-  
+(*fill_pt_list
+trace plusieurs carrï¿½s pleins pour former les piï¿½ces
+      l est la liste des points d'origine de chaque carrï¿½
+      base_point est le point d'origine local
+      base_draw est le point d'origine de l'espace d'affichage
+      dilat est la longueur d'un carrï¿½
+      col est la couleur du contour d'un carrï¿½*)
+
+let drawfill_pt_list(l, base_pt, base_draw, dilat, col : t_point list * t_point * t_point * int * t_color) : unit =
+  for i = 0 to len(l) - 1
+  do draw_relative_pt(nth(l, i), base_pt, base_draw, dilat, col)
+  done
+;;
+
+
+(* --------------------- *)
+(* --------------------- *)  
 (*      Question 4       *)
 (* --------------------- *)
 (* --------------------- *)
 
 (*draw_frame trace en noir la partie de cadre entourant la zone d'affichage
-base_draw : l'origine de la zone d'affichage
-size_x et size_y : indique la taille de la zone de travail
-dilat : longueur d'un carré *)
+      base_draw : l'origine de la zone d'affichage
+      size_x et size_y : indique la taille de la zone de travail
+      dilat : longueur d'un carrï¿½ *)
 
-let draw_frame(base_draw, size_x, size_y, dilat : t_point * int * int * int): unit =
+let draw_frame(base_draw, size_x, size_y, dilat : t_point * int * int * int) : unit =
   draw_rect(base_draw.x + dilat * size_x, base_draw.y + dilat * size_y, base_draw.x + dilat * (size_x + 1) -1, base_draw.y + dilat * (size_y + 1) - 1)
-                  ;;
+;;
+
+
+(* --------------------- *)
+(* --------------------- *)
+(*      Question 5       *)
+(* --------------------- *)
+(* --------------------- *)
+
+let get_time(param : t_param) : t_param_time =
+  param.time
+;;
+
+let get_mat_szx(param : t_param) : int =
+  param.mat_szx
+;;
+
+let get_mat_szy(param : t_param) : int =
+  param.mat_szy
+;;
+
+let get_graphics(param : t_param) : t_param_graphics =
+  param.graphics
+;;
+
+let get_shapes(param : t_param) : t_shape t_array =
+  param.shapes
+;;
+
 
 (* --------------------- *)
 (* --------------------- *)
@@ -324,7 +365,40 @@ let draw_frame(base_draw, size_x, size_y, dilat : t_point * int * int * int): un
 (* --------------------- *)                  
 
 let color_choice(t : t_color t_array): t_color =
-  t = [|blue, red, green, black|]
+  
 ;;
 
 
+(*cur_shape_choice permet de crï¿½er une piï¿½ce de forme alï¿½atoire et de couleur alï¿½atoire qui se place en haut de l'espace de travail
+       shapes est la liste des formes possibles
+       mat_szx est l'abscisse de l'espace de travail
+       mat_szy est l'ordonnï¿½e de l'espace de travail
+       color_arr est le tabaleau des couleurs possibles*)
+
+let cur_shape_choice(shapes, mat_szx, mat_szy, color_arr : t_shape t_array * int * int * t_color t_array) : t_cur_shape =
+  let shape_nb : int = Random.int (shapes.len) in
+  let shape_rdm : t_shape = shapes.(shape_nb) in
+  color_choice(color_arr);
+  shape_rdm.fst(shape).y = mat_szy;
+  shape_rdm.fst(shape).x >= 0 && shape_rdm.fst(shape).x <= mat_szx - shape_rdm.fst(shape).x_len
+;;
+
+
+(*insert permet d'insï¿½rer une piï¿½ce d'une certaine forme dans l'espace d'affichage
+         cur est
+         shape est la liste qui contient les coordonnï¿½es des points de la forme
+         param est les paramï¿½tres de jeu
+         mymat est les paramï¿½tres de l'espace de travail*)
+
+let rec insert(cur, shape, param, mymat : t_cur_shape * t_point list * t_param * t_color matrix) : bool =
+  
+;;
+
+
+let init_play() : t_play =              
+  {par = init_param() ; cur_shape = cur_shape_choice(get_shapes(init_param()), get_mat_szx(init_param()),  get_mat_szy(init_param()), get_graphics(init_param()).t_color_arr) ; mat = get_graphics(init_param()).t_color_arr}
+;;
+
+open_graph(500, 700);;
+clear_graph();;
+draw_absolute_pt({x = 0 ; y = 0}, {x = 10 ; y = 10}, 50, black);;
