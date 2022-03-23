@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> commit
 (* ------------------------ *)
 (*        listes            *)
 (* ------------------------ *)
@@ -163,11 +160,7 @@ let string_length(s : string) : int = String.length s ;;
 (* ------------------------ *)
 (* ------------------------ *)
 (* ------------------------ *)
-<<<<<<< HEAD
-(*  variante sans graphics  *)
-=======
 (*  variante avec graphics  *)
->>>>>>> commit
 (* ------------------------ *)
 (* ------------------------ *)
 (* ------------------------ *)
@@ -177,17 +170,6 @@ let string_length(s : string) : int = String.length s ;;
 (* ------------------------ *)
 (* ------------------------ *)
 let wait(n : int) : unit =
-<<<<<<< HEAD
-  let t : float = Sys.time() and newt : float ref = ref (Sys.time())
-    and fn : float = float_of_int(n)
-  in
-    while (!newt -. t < fn)
-    do newt := Sys.time()
-    done
-;;
-
-
-=======
  Unix.sleep(n)
 ;;
 
@@ -308,7 +290,6 @@ let button_down() : bool =
 
 
 
->>>>>>> commit
 (* ------------------------ *)
 (* ------------------------ *)
 (* ------------------------ *)
@@ -575,8 +556,4 @@ let list_of_array(t : 'a array) : 'a list =
     done ;
     !res ;
     )
-<<<<<<< HEAD
 ;;
-=======
-;;
->>>>>>> commit

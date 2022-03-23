@@ -1,4 +1,0 @@
-open CPutil.ml
-;;
-open JeuCP2
-;;
